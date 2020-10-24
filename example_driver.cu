@@ -43,6 +43,13 @@ inline void __cudaCheckError( const char *file, const int line )
     return;
 }
 
+// timing helper - works from cpu - remember to synchronize before and after kernel call
+double get_nanos() {
+	struct timespec ts;
+	timespec_get(&ts, TIME_UTC);
+	return (double)ts.tv_nsec;
+}
+
 
 // You can also add the __restrict__ keyword to ensure that (some types of?) memory accesses will not read off the end
 // of one array into an array whose starting address is referenced by another defined variable name. Good for debugging
