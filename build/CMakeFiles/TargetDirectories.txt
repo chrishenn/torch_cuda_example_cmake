@@ -1,3 +1,0 @@
-/home/chris/Documents/oodl_local/torch_cuda_example_cmake/build/CMakeFiles/rebuild_cache.dir
-/home/chris/Documents/oodl_local/torch_cuda_example_cmake/build/CMakeFiles/edit_cache.dir
-/home/chris/Documents/oodl_local/torch_cuda_example_cmake/build/CMakeFiles/example_cuda.dir
