@@ -1,9 +1,8 @@
 /**
-Authors: Christian Henn, Qianli Liao
+Author: Christian Henn
 **/
 
-//#include <torch/types.h>
-#include <torch/script.h>
+#include <torch/types.h>
 
 #include <cuda.h>
 #include <cuda_runtime.h>

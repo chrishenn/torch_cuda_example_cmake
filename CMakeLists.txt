@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
-# Create project, specify library name
+# Create project
 SET(PROJECT_NAME example_cuda)
+SET(CMAKE_C_COMPILER gcc)
+SET(CMAKE_CXX_COMPILER g++)
+SET(CMAKE_CUDA_COMPILER nvcc)
 project(${PROJECT_NAME} LANGUAGES CUDA CXX)
 
-# specify your path to libtorch
-list(APPEND CMAKE_PREFIX_PATH "/om2/user/chenn/libtorch/")
-FIND_PACKAGE(Torch REQUIRED)
+# LIBTORCH
+#list(APPEND CMAKE_PREFIX_PATH "/om2/user/chenn/libtorch/")
+list(APPEND CMAKE_PREFIX_PATH "/home/chris/Documents/libtorch")
+FIND_PACKAGE( Torch REQUIRED )
 
-# CUDA PACKAGE
-FIND_PACKAGE( CUDA REQUIRED )
-message("CUDA FOUND")
 set(CUDA_SEPARABLE_COMPILATION ON)
 set(CUDA_PROPAGATE_HOST_FLAGS OFF)
-set(CUDA_HOST_COMPILER clang++)
 
 # Source files
 file(GLOB INTERNAL_SOURCE ${PROJECT_SOURCE_DIR}/*.cpp )

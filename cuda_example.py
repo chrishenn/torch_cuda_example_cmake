@@ -1,7 +1,7 @@
 import os
 
 import torch as t
-t.ops.load_library(os.path.split(os.path.split(__file__)[0])[0] + "/torch_cuda_example_cmake/build/libexample_cuda.so")
+t.ops.load_library(os.path.split(__file__)[0] + "/build/libexample_cuda.so")
 
 
 def example_python_call():
