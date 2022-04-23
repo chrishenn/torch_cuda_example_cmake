@@ -1,5 +1,7 @@
 # Build Cuda and Torch-C++ Extensions with Cmake
 
+This provides a minimal framework to build a libtorch / cuda extension to our python application/script. With this project, we can verify that each component is compatible, configured and installed correctly, and is in the right place.
+
 
 ###
 ### Environment
