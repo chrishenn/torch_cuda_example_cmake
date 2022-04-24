@@ -1,23 +1,29 @@
-# Build Cuda and Torch-C++ Extensions with Cmake
+<h1 align="center" style="margin-top: 0px;">Build Cuda and Torch-C++ Extensions with Cmake</h1>
+
+---
 
 This provides a minimal framework to build a libtorch / cuda extension to our python application/script. With this project, we can verify that each component is compatible, configured and installed correctly, and is in the right place.
+
+CMake is the preferred build system for Torch / libtorch extensions. CMake will detect the supported Nvidia compute capabilities of all Nvidia gpus on the system - and automatically build for those architectures as needed.
 
 ---
 
 
 ## Environment
 
-It is crucial that the versions of the CUDA toolkit agree accross pytorch, libtorch, and the nvcc version used. Check the pytorch website to find out with version of CUDA is used to build the binaries for pytorch you have installed through your python environment manager. Your system version of CUDnn must be compatible with the CUDA version, and the Nvidia driver installed on your system must also be compatible; see the Nvidia compatibility matrices.
+It is crucial that the versions of the CUDA toolkit agree accross pytorch, libtorch, and the nvcc version used. Check the pytorch website to find out wich version of CUDA is used to build the pytorch binaries you have installed through your python environment manager. Your system version of CUDnn must be compatible with the CUDA version, and the Nvidia driver installed on your system must also be compatible; see the Nvidia compatibility matrices.
 
-Here I'm using CUDA 11.1, pytorch / libtorch 1.8.2, 
+Here I'm using CUDA 11.1, pytorch / libtorch 1.8.2, CUDnn 8.4.0, gcc 9.4.0, and CMake 3.16.3.
 
 To create a conda environment:
 
     conda env create -f env182.yml
 
-This conda .yml specifies the python version, then calls "pip install -r env182.txt".
+Or, update an existing environment:
 
-CMake is the preferred build system for Torch / libtorch extensions. CMake will detect the supported Nvidia compute capabilities of all Nvidia gpus on the system - and automatically build for those architectures as needed.  
+    conda env update -f env182.yml
+
+This conda .yml specifies the python version for the environment, then calls "pip install -r env182.txt" for all packages.
 
 ---
 
@@ -40,9 +46,9 @@ You may also need to specify paths to the correct versions of gcc / g++ / nvcc i
 ---
 
 
-## Apptainer Build and run
+## Apptainer Build and Run
 
-I'm running Apptainer 1.0.1 installed on my system.
+I'm running Apptainer 1.0.1 on my system. To install, see: [Apptainer Quick Start](https://apptainer.org/docs/user/main/quick_start.html)
 
 Build an apptainer image from env182.def:
 
