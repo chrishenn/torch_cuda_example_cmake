@@ -23,6 +23,10 @@ Or, update an existing environment:
 
 This conda .yml specifies the python version for the environment, then calls "pip install -r env182.txt" for all packages.
 
+We can pull the appropriate libtorch versions directly from the web at urls like:
+
+    wget https://download.pytorch.org/libtorch/lts/1.8/cu111/libtorch-shared-with-deps-1.8.2%2Bcu111.zip
+
 ---
 
 
