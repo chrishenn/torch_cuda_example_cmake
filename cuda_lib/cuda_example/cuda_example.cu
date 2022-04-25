@@ -1,5 +1,10 @@
 /**
 Author: Chris Henn (https://github.com/chrishenn)
+
+NOTE:
+cuda __global__ kernels can be included from a .cu file by adding a declaration in this file, where the call is. The kernels will be compiled and found no
+problem (as long as the names are unique?). HOWEVER, templated __global__ kernels CANNOT be included in this way - the kernel call with the AT_DISPATCH macro
+and the kernel it's calling MUST be in the same file, or else python will throw an "unknown symbol" error.
 **/
 
 #include <torch/types.h>
@@ -50,7 +55,7 @@ double get_nanos() {
 }
 
 
-// You can also add the __restrict__ keyword to ensure that (some types of?) memory accesses will not read off the end
+// You can also add the __restrict__ keyword to ensure that memory accesses will not read off the end
 // of one array into an array whose starting address is referenced by another defined variable name. Good for debugging
 // but can incurr significant performance penalty.
 
