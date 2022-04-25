@@ -4,6 +4,8 @@
     <img src="doc/images/comp.jpg" height="300" >
 </div>
 
+&emsp; 
+
 This provides a minimal framework to build a libtorch / cuda extension to our python application/script. With this project, we can verify that each system component is compatible, configured and installed correctly, and in the right place.
 
 CMake is the preferred build system for Torch / libtorch extensions. CMake will detect the supported Nvidia compute capabilities of all Nvidia gpus on the system - and automatically build for those architectures as needed.
