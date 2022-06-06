@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 # Create project
 SET(PROJECT_NAME example_cuda)
@@ -8,12 +8,7 @@ SET(CMAKE_CUDA_COMPILER nvcc)
 project(${PROJECT_NAME} LANGUAGES CUDA CXX)
 
 # LIBTORCH
-#list(APPEND CMAKE_PREFIX_PATH "/om2/user/chenn/libtorch/")
-list(APPEND CMAKE_PREFIX_PATH "/home/chris/Documents/libtorch")
 FIND_PACKAGE( Torch REQUIRED )
-
-set(CUDA_SEPARABLE_COMPILATION ON)
-set(CUDA_PROPAGATE_HOST_FLAGS OFF)
 
 # Source files
 file(GLOB INTERNAL_SOURCE ${PROJECT_SOURCE_DIR}/*.cpp )
@@ -22,5 +17,4 @@ file(GLOB INTERNAL_HEADERS ${PROJECT_SOURCE_DIR}/*.h )
 
 # Define our library target
 add_library(${PROJECT_NAME} SHARED ${INTERNAL_SOURCE} ${INTERNAL_HEADERS} ${CUDA_SOURCE} )
-
 target_link_libraries(${PROJECT_NAME} "${TORCH_LIBRARIES}")
